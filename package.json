@@ -2,10 +2,10 @@
   "name": "mindmirror-ai",
   "version": "1.0.0",
   "description": "AI-powered text analysis platform using Gemini API",
-  "main": "server.js",
+  "main": "server/server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js"
+    "start": "node server/server.js",
+    "dev": "nodemon server/server.js"
   },
   "keywords": [
     "ai",
