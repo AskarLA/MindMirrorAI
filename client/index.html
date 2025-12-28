@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindMirror AI - Text Analysis Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
+
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16 4L4 16L16 28L28 16L16 4Z" fill="url(#gradient)" opacity="0.8"/>
+                    <path d="M16 8L8 16L16 24L24 16L16 8Z" fill="url(#gradient)"/>
+                    <defs>
+                        <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#6366f1;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <h1>MindMirror AI</h1>
+            </div>
+            <p class="tagline">Unlock insights from your text with AI-powered analysis</p>
+        </header>
+
+        <main class="main-content">
+            <div class="input-section glass-card">
+                <h2>Enter Your Text</h2>
+                <textarea 
+                    id="textInput" 
+                    placeholder="Опишите мысли, переживания или внутренний диалог. Можно писать свободно — как будто вы пишете себе. Это не тест и не оценка."
+                    rows="8"
+                ></textarea>
+                <div class="input-footer">
+                    <span class="char-count"><span id="charCount">0</span> / 10,000 characters</span>
+                    <button id="analyzeBtn" class="analyze-button">
+                        <span class="btn-text">Analyze</span>
+                        <svg class="btn-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M3 10H17M17 10L12 5M17 10L12 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div id="loadingSection" class="loading-section glass-card hidden">
+                <div class="spinner"></div>
+                <p>Analyzing your text...</p>
+            </div>
+
+            <div id="errorSection" class="error-section glass-card hidden">
+                <div class="error-icon">⚠️</div>
+                <h3>Error</h3>
+                <p id="errorMessage"></p>
+                <button id="dismissError" class="dismiss-button">Dismiss</button>
+            </div>
+
+            <div id="resultSection" class="result-section glass-card hidden">
+                <div class="result-header">
+                    <h2>Analysis Results</h2>
+                    <button id="clearResult" class="clear-button">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M15 5L5 15M5 5L15 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                </div>
+                
+                <div class="result-content">
+                    <div class="result-card sentiment-card">
+                        <div class="card-icon">🎭</div>
+                        <div class="card-content">
+                            <h3>Sentiment</h3>
+                            <p class="sentiment-value" id="sentimentValue">-</p>
+                        </div>
+                    </div>
+
+                    <div class="result-card themes-card">
+                        <div class="card-icon">💡</div>
+                        <div class="card-content">
+                            <h3>Key Themes</h3>
+                            <div class="themes-list" id="themesList">
+                                <span class="theme-tag">-</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="result-card tone-card">
+                        <div class="card-icon">🎨</div>
+                        <div class="card-content">
+                            <h3>Tone</h3>
+                            <p id="toneValue">-</p>
+                        </div>
+                    </div>
+
+                    <div class="result-card summary-card">
+                        <div class="card-icon">📝</div>
+                        <div class="card-content">
+                            <h3>Summary</h3>
+                            <p id="summaryValue">-</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>Powered by <strong>Gemini AI</strong> | MindMirror AI © 2024</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
+
